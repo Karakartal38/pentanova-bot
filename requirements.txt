@@ -1,0 +1,12 @@
+# Pentanova Hukuk Danışman Bot - Gereksinimler
+
+# Telegram Bot
+python-telegram-bot==21.0
+
+# AI API'ları
+anthropic>=0.18.0
+openai>=1.12.0
+google-generativeai>=0.4.0
+
+# Yardımcı
+python-dotenv>=1.0.0
