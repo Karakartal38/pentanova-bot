@@ -234,7 +234,7 @@ class AIClients:
         
         if self.google_key:
             genai.configure(api_key=self.google_key)
-            self.gemini_model = genai.GenerativeModel('gemini-1.5-pro')
+            self.gemini_model = genai.GenerativeModel('gemini-2.0-flash')
             logger.info("✅ Gemini API hazır")
     
     async def _get_claude_response(self, question: str) -> str:
