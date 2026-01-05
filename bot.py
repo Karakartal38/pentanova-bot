@@ -1,4 +1,3 @@
-
 """
 Pentanova Hukuk Danışman Telegram Botu
 Sadece Claude API - Basit Versiyon
@@ -8,7 +7,6 @@ import os
 import asyncio
 import logging
 import random
-from datetime import datetime
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, ContextTypes, filters
 import anthropic
@@ -38,9 +36,11 @@ GREETINGS = [
 
 claude_client = None
 
+
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     name = update.effective_user.first_name or "Sayın Kullanıcı"
     await update.message.reply_text(random.choice(GREETINGS).format(name=name))
+
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global claude_client
@@ -79,6 +79,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     await update.message.reply_text(answer)
 
+
 async def main():
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
     if not bot_token:
@@ -105,8 +106,6 @@ async def main():
         await app.stop()
         await app.shutdown()
 
+
 if __name__ == "__main__":
     asyncio.run(main())
-```
-
-Bu kodu yapıştır ve **Commit changes** yap. Sonra Railway otomatik deploy edecek.
